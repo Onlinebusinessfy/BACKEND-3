@@ -2,7 +2,12 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Perro
 from django.db.models import Q
+from django.shortcuts import render
 
+
+
+def home_page(request):
+    return render(request, "perros/index.html")
 
 # CONVERTIR OBJETO A JSON
 def perro_json(perro):
@@ -77,7 +82,7 @@ def listar_perros(request):
     }, status=200)
 
 
-# 2. GET /dogs/5/
+# 2. GET /dogs/1/
 def obtener_perro(request, id):
 
     try:

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tienda de Perros API</title>
+</head>
+
+<body style="margin:0;background:#f5f5f5;font-family:Arial;">
+
+<header style="background:#111;color:white;padding:25px;text-align:center;">
+  <h1>🐶 Tienda de Perros API</h1>
+  <p>Documentación de endpoints - Django REST API</p>
+</header>
+
+<div style="padding:20px;">
+
+  <div style="background:white;padding:15px;margin-bottom:15px;border-radius:10px;">
+    <h2>📖 Descripción</h2>
+    <p>
+      Esta API permite gestionar perros, incluyendo búsqueda, filtrado por edad,
+      raza, tamaño y estado de adopción.
+    </p>
+  </div>
+
+  <div style="background:white;padding:15px;margin-bottom:15px;border-radius:10px;">
+    <h3>GET /dogs/</h3>
+    <p>Lista todos los perros con filtros opcionales.</p>
+    <p><b>Ejemplo:</b></p>
+    <code>http://127.0.0.1:8000/dogs/?ordering=edad</code>
+
+    <pre style="background:#000;color:#0f0;padding:10px;border-radius:10px;">
+{
+  "message": "Perros encontrados",
+  "total": 3,
+  "data": [...]
+}
+    </pre>
+  </div>
+
+  <div style="background:white;padding:15px;margin-bottom:15px;border-radius:10px;">
+    <h3>GET /dogs/{id}/</h3>
+    <p>Obtiene la información de un perro específico.</p>
+    <code>http://127.0.0.1:8000/dogs/5/</code>
+
+    <pre style="background:#000;color:#0f0;padding:10px;border-radius:10px;">
+{
+  "message": "Perro encontrado",
+  "data": {
+    "id": 5,
+    "nombre": "Max",
+    "raza": "Labrador"
+  }
+}
+    </pre>
+  </div>
+
+  <div style="background:white;padding:15px;margin-bottom:15px;border-radius:10px;">
+    <h3>GET /dogs/breed/{raza}/</h3>
+    <p>Filtra perros por raza.</p>
+    <code>http://127.0.0.1:8000/dogs/breed/pug/</code>
+  </div>
+
+  <div style="background:white;padding:15px;margin-bottom:15px;border-radius:10px;">
+    <h3>GET /dogs/search/{nombre}/</h3>
+    <p>Busca perros por nombre.</p>
+    <code>http://127.0.0.1:8000/dogs/search/wal/</code>
+  </div>
+
+  <div style="background:white;padding:15px;margin-bottom:15px;border-radius:10px;">
+    <h3>GET /dogs/adoptable/</h3>
+    <p>Lista perros disponibles para adopción.</p>
+
+    <pre style="background:#000;color:#0f0;padding:10px;border-radius:10px;">
+{
+  "message": "Perros disponibles para adopcion",
+  "total": 2,
+  "data": [...]
+}
+    </pre>
+  </div>
+
+</div>
+
+<footer style="background:#111;color:white;text-align:center;padding:15px;margin-top:20px;">
+  <p>Hecho por Samuel Dominguez</p>
+</footer>
+
+</body>
+</html>
